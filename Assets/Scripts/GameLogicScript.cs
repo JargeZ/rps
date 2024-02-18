@@ -1,18 +1,25 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameLogicScript : MonoBehaviour
 {
-    public string player1;
-    public string player2;
+    [SerializeField]
+    private TMP_Text _result;
+
+    public string ChooseLeft { get; set; }
+    public string ChooseRight { get; set; }
 
     // Этот метод вызывается, например, при нажатии кнопки сравнения
     public void CompareSharedValues()
     {
-      
+        _result.text = DetermineWinner(ChooseLeft, ChooseRight);
+        Debug.Log("update " + ChooseLeft + " / " + ChooseRight + " = " + _result.text);
     }
-
-    private string DetermineWinner(string value1, string value2)
+    
+    public string DetermineWinner(string value1, string value2)
     {
+
         // Правила камень-ножницы-бумаги
         if (value1 == value2)
         {
