@@ -6,9 +6,9 @@ public class GetValue2 : MonoBehaviour
     // Общая переменная, которую вы хотите установить
     public void setChoose(string choose)
     {
-        GameLogicScript logic = GameLogicScript.FindFirstObjectByType<GameLogicScript>();
-        logic.ChooseRight = choose;
-        logic.CompareSharedValues();
+        GameLogicScript jopa = GameLogicScript.FindFirstObjectByType<GameLogicScript>();
+        jopa.ChooseRight = choose;
+        jopa.CompareSharedValues();
         Debug.Log("Set value: " + choose);
     }
 

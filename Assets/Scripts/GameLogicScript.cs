@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public enum GameResult
 {
@@ -15,8 +16,8 @@ public class GameLogicScript : MonoBehaviour
     private TMP_Text _result;
     public CharController _character;
 
-    public string ChooseLeft { get; set; }
-    public string ChooseRight { get; set; }
+    public string ChooseLeft;
+    public string ChooseRight;
 
     private void ResetGame()
     {
@@ -58,7 +59,16 @@ public class GameLogicScript : MonoBehaviour
     }
 
     // Этот метод вызывается, например, при нажатии кнопки сравнения
-    public void CompareSharedValues()
+
+    public void TryAgain()
+    {
+        // Reload the current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+    }
+
+
+        public void CompareSharedValues()
     {
 
         if ((ChooseLeft != "" && ChooseRight == "")||(ChooseLeft == "" && ChooseRight != ""))
