@@ -68,7 +68,7 @@ public class GameLogicScript : MonoBehaviour
     }
 
 
-        public void CompareSharedValues()
+    public void CompareSharedValues()
     {
 
         if ((ChooseLeft != "" && ChooseRight == "")||(ChooseLeft == "" && ChooseRight != ""))
