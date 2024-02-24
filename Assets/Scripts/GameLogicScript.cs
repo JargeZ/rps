@@ -1,17 +1,27 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameLogicScript : MonoBehaviour
 {
     [SerializeField]
     private TMP_Text _result;
 
-    public string ChooseLeft { get; set; }
-    public string ChooseRight { get; set; }
+    public string ChooseLeft;
+    public string ChooseRight;
 
     // Этот метод вызывается, например, при нажатии кнопки сравнения
-    public void CompareSharedValues()
+
+    public void TryAgain()
+    {
+        // Reload the current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+    }
+
+
+        public void CompareSharedValues()
     {
         _result.text = DetermineWinner(ChooseLeft, ChooseRight);
         Debug.Log("update " + ChooseLeft + " / " + ChooseRight + " = " + _result.text);
