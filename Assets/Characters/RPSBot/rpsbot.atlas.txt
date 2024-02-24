@@ -1,0 +1,181 @@
+
+rpsbot.png
+size: 2031,1458
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/бедро_лево
+  rotate: false
+  xy: 831, 412
+  size: 179, 427
+  orig: 179, 427
+  offset: 0, 0
+  index: -1
+images/бедро_право
+  rotate: true
+  xy: 806, 166
+  size: 244, 451
+  orig: 244, 451
+  offset: 0, 0
+  index: -1
+images/глаза 1
+  rotate: true
+  xy: 1259, 132
+  size: 437, 226
+  orig: 437, 226
+  offset: 0, 0
+  index: -1
+images/глаза 2
+  rotate: false
+  xy: 1605, 817
+  size: 390, 172
+  orig: 390, 172
+  offset: 0, 0
+  index: -1
+images/голень_лево
+  rotate: true
+  xy: 2, 24
+  size: 305, 451
+  orig: 305, 451
+  offset: 0, 0
+  index: -1
+images/голень_право
+  rotate: false
+  xy: 1012, 487
+  size: 221, 485
+  orig: 221, 485
+  offset: 0, 0
+  index: -1
+images/кисть ножницы
+  rotate: false
+  xy: 1487, 272
+  size: 276, 276
+  orig: 276, 276
+  offset: 0, 0
+  index: -1
+images/кисть пау
+  rotate: false
+  xy: 1235, 571
+  size: 352, 283
+  orig: 352, 283
+  offset: 0, 0
+  index: -1
+images/кисть_бумага
+  rotate: false
+  xy: 1487, 36
+  size: 278, 234
+  orig: 278, 234
+  offset: 0, 0
+  index: -1
+images/кисть_кулак
+  rotate: false
+  xy: 1765, 284
+  size: 258, 264
+  orig: 258, 264
+  offset: 0, 0
+  index: -1
+images/кисть_лево
+  rotate: true
+  xy: 1589, 550
+  size: 265, 440
+  orig: 265, 440
+  offset: 0, 0
+  index: -1
+images/лицо
+  rotate: false
+  xy: 2, 331
+  size: 471, 508
+  orig: 471, 508
+  offset: 0, 0
+  index: -1
+images/плечо_лево
+  rotate: false
+  xy: 1246, 1092
+  size: 377, 364
+  orig: 377, 364
+  offset: 0, 0
+  index: -1
+images/плечо_право
+  rotate: true
+  xy: 1625, 1222
+  size: 234, 402
+  orig: 234, 402
+  offset: 0, 0
+  index: -1
+images/рот1
+  rotate: true
+  xy: 912, 852
+  size: 120, 69
+  orig: 120, 69
+  offset: 0, 0
+  index: -1
+images/рот2
+  rotate: false
+  xy: 1012, 422
+  size: 142, 63
+  orig: 142, 63
+  offset: 0, 0
+  index: -1
+images/рука_право
+  rotate: false
+  xy: 455, 10
+  size: 254, 173
+  orig: 254, 173
+  offset: 0, 0
+  index: -1
+images/стопа_лево
+  rotate: false
+  xy: 1246, 856
+  size: 357, 234
+  orig: 357, 234
+  offset: 0, 0
+  index: -1
+images/ступня_право
+  rotate: false
+  xy: 475, 185
+  size: 329, 229
+  orig: 329, 229
+  offset: 0, 0
+  index: -1
+images/таз
+  rotate: true
+  xy: 1767, 2
+  size: 280, 223
+  orig: 280, 223
+  offset: 0, 0
+  index: -1
+images/торс
+  rotate: false
+  xy: 475, 416
+  size: 354, 423
+  orig: 354, 423
+  offset: 0, 0
+  index: -1
+images/ухо_лево
+  rotate: false
+  xy: 912, 974
+  size: 332, 482
+  orig: 332, 482
+  offset: 0, 0
+  index: -1
+images/ухо_право
+  rotate: true
+  xy: 1625, 991
+  size: 229, 395
+  orig: 229, 395
+  offset: 0, 0
+  index: -1
+images/хвост
+  rotate: false
+  xy: 2, 841
+  size: 908, 615
+  orig: 908, 615
+  offset: 0, 0
+  index: -1
+images/шея
+  rotate: true
+  xy: 711, 29
+  size: 135, 227
+  orig: 135, 227
+  offset: 0, 0
+  index: -1
