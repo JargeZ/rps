@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class ChoiceButton : MonoBehaviour
 {
-    [SerializeField]
     public GameChoice choice;
     public KeyCode activationKey;
+    
     private Button _button;
     private PlayerSideController _playerSideController;
 
