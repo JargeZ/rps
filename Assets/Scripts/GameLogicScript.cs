@@ -2,27 +2,41 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public enum GameResult
 {
     Draw,
-    Player1Wins,
-    Player2Wins
+    PlayerLeftWins,
+    PlayerRightWins
 }
 
 public class GameLogicScript : MonoBehaviour
 {
     [SerializeField]
     private TMP_Text _result;
-    public CharController _character;
-
-    public string ChooseLeft;
-    public string ChooseRight;
+    public PlayerSideController _leftPlayer;
+    public PlayerSideController _rightPlayer;
 
     private void ResetGame()
     {
-        ChooseLeft = "";
-        ChooseRight = "";
+        ChoiceButton[] buttons = FindObjectsOfType<ChoiceButton>();
+        foreach (ChoiceButton button in buttons)
+        {
+            button.GetComponent<Button>().interactable = true;
+        }
+        _result.text = "Make your choice!";
+        _leftPlayer.playerState.currentChoose = GameChoice.None;
+        _rightPlayer.playerState.currentChoose = GameChoice.None;
+    }
+
+    private IEnumerator PerformDelayedReset()
+    {
+        // Ждем 5 секунд
+        yield return new WaitForSeconds(3);
+
+        // Выполняем действие
+        ResetGame();
     }
 
     private string getScreenText(GameResult result)
@@ -31,10 +45,10 @@ public class GameLogicScript : MonoBehaviour
         {
             case GameResult.Draw:
                 return "Draw!";
-            case GameResult.Player1Wins:
-                return "Player 1 wins!";
-            case GameResult.Player2Wins:
-                return "Player 2 wins!";
+            case GameResult.PlayerLeftWins:
+                return "Player " + _leftPlayer.playerState.name + " wins!";
+            case GameResult.PlayerRightWins:
+                return "Player " + _rightPlayer.playerState.name + " wins!";
             default:
                 throw new System.Exception("Unknown game result");
         }
@@ -45,13 +59,15 @@ public class GameLogicScript : MonoBehaviour
         switch (result)
         {
             case GameResult.Draw:
-                _character.SetAnimation("Draw");
+                _leftPlayer.AnimateDraw(0);
                 break;
-            case GameResult.Player1Wins:
-                _character.SetAnimation("Win");
+            case GameResult.PlayerLeftWins:
+                _leftPlayer.AnimateWin(0);
+                _rightPlayer.AnimateLose(0);
                 break;
-            case GameResult.Player2Wins:
-                _character.SetAnimation("Lose");
+            case GameResult.PlayerRightWins:
+                _rightPlayer.AnimateWin(0);
+                _leftPlayer.AnimateLose(0);
                 break;
             default:
                 throw new System.Exception("Unknown game result");
@@ -68,49 +84,49 @@ public class GameLogicScript : MonoBehaviour
     }
 
 
-    public void CompareSharedValues()
+    public void CheckForGameResults()
     {
+        GameChoice ChooseLeft = _leftPlayer.playerState.currentChoose;
+        GameChoice ChooseRight = _rightPlayer.playerState.currentChoose;
 
-        if ((ChooseLeft != "" && ChooseRight == "")||(ChooseLeft == "" && ChooseRight != ""))
+        if ((ChooseLeft != GameChoice.None && ChooseRight == GameChoice.None)||(ChooseLeft == GameChoice.None && ChooseRight != GameChoice.None))
         {
-            _character.SetAnimation("Idle");
             _result.text = "Game starts!";
         }
 
-        if (ChooseLeft != "" && ChooseRight != "")
+        if (ChooseLeft != GameChoice.None && ChooseRight != GameChoice.None)
         {
             GameResult result = DetermineWinner(ChooseLeft, ChooseRight);
             _result.text = getScreenText(result);
             setResultAnimation(result);
-            ResetGame();
+            StartCoroutine(PerformDelayedReset());
         }
     }
 
     void Start()
     {
         ResetGame();
-        _character = CharController.FindFirstObjectByType<CharController>();
     }
     
-    public GameResult DetermineWinner(string value1, string value2)
+    public GameResult DetermineWinner(GameChoice leftValue, GameChoice rightValue)
     {
 
         // Правила камень-ножницы-бумаги
-        if (value1 == value2)
+        if (leftValue == rightValue)
         {
             return GameResult.Draw;
         }
         else if (
-            (value1 == "Rock" && value2 == "Scissors") ||
-            (value1 == "Paper" && value2 == "Rock") ||
-            (value1 == "Scissors" && value2 == "Paper")
+            (leftValue == GameChoice.Rock && rightValue == GameChoice.Scissors) ||
+            (leftValue == GameChoice.Paper && rightValue == GameChoice.Rock) ||
+            (leftValue == GameChoice.Scissors && rightValue == GameChoice.Paper)
         )
         {
-            return GameResult.Player1Wins;
+            return GameResult.PlayerLeftWins;
         }
         else
         {
-            return GameResult.Player2Wins;
+            return GameResult.PlayerRightWins;
         }
     }
 }

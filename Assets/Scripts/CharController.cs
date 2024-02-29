@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CharController : MonoBehaviour
 {
     private Animator _animator;
@@ -13,12 +14,9 @@ public class CharController : MonoBehaviour
 
     public void SetAnimation(string animation)
     {
+        Debug.Log("Set animation: " + animation);
         _animator.Play(animation);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
