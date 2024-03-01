@@ -49,10 +49,22 @@ jobs:
           unityVersion: 2022.3.18f1
           targetPlatform: WebGL
 
+      - name: Debug
+        run: |
+          echo "Debugging"
+          ls -la build
+          echo "Debugging"
+          ls -la build/WebGL
+          echo "Debugging"
+          ls -la build/WebGL/* || true
+          echo "Debugging"
+          ls -la build/WebGL/Build/* || true
+          echo "Debugging"
+          ls -la build/WebGL/Build || true
       - name: Output
         uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages
+          name: Build
           path: build/WebGL
 
   deploy:
@@ -70,4 +82,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: Build
+
 
