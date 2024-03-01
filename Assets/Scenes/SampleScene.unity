@@ -1551,7 +1551,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 23.5
+  orthographic size: 11.75
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1576,7 +1576,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10.6, z: -10}
+  m_LocalPosition: {x: 0, y: 5.3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1626,7 +1626,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4062410756cfe40f18bfc9d450873a1a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.723
+  m_Volume: 0.51
   m_Pitch: 1.03
   Loop: 1
   Mute: 0
@@ -2329,6 +2329,7 @@ GameObject:
   - component: {fileID: 1776043793}
   - component: {fileID: 1776043792}
   - component: {fileID: 1776043791}
+  - component: {fileID: 1776043794}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2386,79 +2387,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1837753060
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1837753062}
-  - component: {fileID: 1837753065}
-  - component: {fileID: 1837753066}
-  - component: {fileID: 1837753068}
-  m_Layer: 0
-  m_Name: Runner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1837753062
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837753060}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.0082471, y: 2.683123, z: 0.005}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1837753065
+--- !u!114 &1776043794
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837753060}
+  m_GameObject: {fileID: 1776043790}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10be67b4f5f1144548fe8062e25c1414, type: 3}
+  m_Script: {fileID: 11500000, guid: b6e4029da47924037ab2f258df4ec3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1837753066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837753060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6a84b073e9e5472ab6b9c3dcf94898d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1837753068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837753060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fa983d891f2e4334b3b722c856175ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _result: {fileID: 288384301}
-  _leftPlayer: {fileID: 0}
-  _rightPlayer: {fileID: 0}
 --- !u!1 &1916297304
 GameObject:
   m_ObjectHideFlags: 0
@@ -3503,6 +3443,5 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 1776043793}
-  - {fileID: 1837753062}
   - {fileID: 1241523304}
   - {fileID: 1055331374}
