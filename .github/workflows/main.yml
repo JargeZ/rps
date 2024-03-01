@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - first-logic
     tags:
       - v*  # Set a tag pattern to trigger deployment
   # Allows you to run this workflow manually from the Actions tab
@@ -51,7 +52,7 @@ jobs:
       - name: Output
         uses: actions/upload-pages-artifact@v3
         with:
-          name: Build
+          name: github-pages
           path: build/WebGL
 
   deploy:
