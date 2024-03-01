@@ -51,7 +51,7 @@ jobs:
       - name: Output
         uses: actions/upload-pages-artifact@v3
         with:
-          name: Build
+          name: github-pages
           path: build/WebGL
 
   deploy:
