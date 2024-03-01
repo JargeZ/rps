@@ -3,6 +3,7 @@ on:
   push:
     tags:
       - v*  # Set a tag pattern to trigger deployment
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -28,10 +29,10 @@ jobs:
 
       - uses: actions/cache@v3
         with:
-          path: path/to/your/project/Library
-          key: Library-MyProjectName-TargetPlatform
+          path: Library
+          key: Library-rps-WebGL
           restore-keys: |
-            Library-MyProjectName-
+            Library-rps-
             Library-
 
       - name: Build
