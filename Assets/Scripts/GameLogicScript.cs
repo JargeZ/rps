@@ -26,6 +26,8 @@ public class GameLogicScript : MonoBehaviour
             button.GetComponent<Button>().interactable = true;
         }
         _result.text = "Make your choice!";
+        _leftPlayer.AnimateIdle();
+        _rightPlayer.AnimateIdle();
         _leftPlayer.playerState.currentChoose = GameChoice.None;
         _rightPlayer.playerState.currentChoose = GameChoice.None;
     }
@@ -59,15 +61,15 @@ public class GameLogicScript : MonoBehaviour
         switch (result)
         {
             case GameResult.Draw:
-                _leftPlayer.AnimateDraw(0);
+                _leftPlayer.AnimateDraw();
                 break;
             case GameResult.PlayerLeftWins:
-                _leftPlayer.AnimateWin(0);
-                _rightPlayer.AnimateLose(0);
+                _leftPlayer.AnimateWin();
+                _rightPlayer.AnimateLose();
                 break;
             case GameResult.PlayerRightWins:
-                _rightPlayer.AnimateWin(0);
-                _leftPlayer.AnimateLose(0);
+                _rightPlayer.AnimateWin();
+                _leftPlayer.AnimateLose();
                 break;
             default:
                 throw new System.Exception("Unknown game result");

@@ -15,7 +15,7 @@ public class CharController : MonoBehaviour
     public void SetAnimation(string animation)
     {
         Debug.Log("Set animation: " + animation);
-        _animator.Play(animation);
+        _animator.SetTrigger(animation);
     }
 
 
