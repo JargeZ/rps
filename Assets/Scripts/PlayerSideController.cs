@@ -10,6 +10,15 @@ public enum GameChoice
     Scissors = 3
 }
 
+public static class AnimationTriger
+{
+    public static string Win = "IsWin";
+    public static string Lose = "IsLose";
+    public static string Draw = "IsDraw";
+    public static string Idle = "IsLoop";
+    public static string Chosen = "IsChosen";
+}
+
 [System.Serializable]
 public struct PlayerState
 {
@@ -36,6 +45,7 @@ public class PlayerSideController : MonoBehaviour
 
     public void SetChoice(GameChoice choice)
     {
+        _character.SetAnimation(AnimationTriger.Chosen);
         playerState.currentChoose = choice;
         Debug.Log(playerState.name + " chose " + choice);
         
@@ -44,24 +54,32 @@ public class PlayerSideController : MonoBehaviour
         {
             button.GetComponent<UnityEngine.UI.Button>().interactable = false;
         }
-        
+
         _gameLogic.CheckForGameResults();
     }
 
 
 
-    public void AnimateWin(int animation)
+    public void AnimateWin()
     {
         Debug.Log("Set " + playerState.name + " animation: Win");
+        _character.SetAnimation(AnimationTriger.Win);
     }
     
-    public void AnimateLose(int animation)
+    public void AnimateLose()
     {
         Debug.Log("Set " + playerState.name + " animation: Lose");
+        _character.SetAnimation(AnimationTriger.Lose);
     }
 
-    public void AnimateDraw(int animation)
+    public void AnimateDraw()
     {
         Debug.Log("Set " + playerState.name + " animation: Draw");
+        _character.SetAnimation(AnimationTriger.Draw);
+    }
+    public void AnimateIdle()
+    {
+        Debug.Log("Set " + playerState.name + " animation: Idle");
+        _character.SetAnimation(AnimationTriger.Idle);
     }
 }
