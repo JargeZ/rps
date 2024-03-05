@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -58,6 +59,32 @@ public class PlayerSideController : MonoBehaviour
         _gameLogic.CheckForGameResults();
     }
 
+
+    private IEnumerator SetHandAfterAnimation(string hand)
+    {
+        Animator animator = _character.GetAnimator();
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        float animationLength = stateInfo.length;
+        float remainingTime = animationLength * (1 - Mathf.Repeat(stateInfo.normalizedTime, 1));
+
+        yield return new WaitForSeconds(remainingTime - 0.69f);
+
+        _character.SetHand(hand);
+    }
+
+    public void UpdateHand()
+    {
+        Dictionary<GameChoice, string> hands = new Dictionary<GameChoice, string>
+        {
+            {GameChoice.Rock, CharHands.Rock},
+            {GameChoice.Paper, CharHands.Paper},
+            {GameChoice.Scissors, CharHands.Scissors}
+        };
+        
+        string hand = hands.GetValueOrDefault(playerState.currentChoose, CharHands.Pew);
+
+        StartCoroutine(SetHandAfterAnimation(hand));
+    }
 
 
     public void AnimateWin()

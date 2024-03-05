@@ -30,6 +30,8 @@ public class GameLogicScript : MonoBehaviour
         _rightPlayer.AnimateIdle();
         _leftPlayer.playerState.currentChoose = GameChoice.None;
         _rightPlayer.playerState.currentChoose = GameChoice.None;
+        _rightPlayer.UpdateHand();
+        _leftPlayer.UpdateHand();
     }
 
     private IEnumerator PerformDelayedReset()
@@ -102,7 +104,10 @@ public class GameLogicScript : MonoBehaviour
             _result.text = getScreenText(result);
             setResultAnimation(result);
             StartCoroutine(PerformDelayedReset());
+            _leftPlayer.UpdateHand();
+            _rightPlayer.UpdateHand();
         }
+
     }
 
     void Start()
