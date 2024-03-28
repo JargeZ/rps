@@ -74,3 +74,4 @@ Library/*
 .DS_Store
 
 .fake
+.vsconfig
