@@ -34,11 +34,13 @@ public class PlayerSideController : MonoBehaviour
     private CharController _character;
     public string PlayerName;
     private GameLogicScript _gameLogic;
+    public CharacterSelector characterSelector;
 
     // Start is called before the first frame update
     void Start()
     {
-        _character = GetComponentInChildren<CharController>();
+        characterSelector.Select("dean");
+        _character = characterSelector.GetActiveCharacter();
         _gameLogic = GetComponentInParent<GameLogicScript>();
         playerState.currentChoose = GameChoice.None;
         playerState.name = PlayerName;
