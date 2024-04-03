@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public enum GameChoice
 {
@@ -35,15 +36,30 @@ public class PlayerSideController : MonoBehaviour
     public string PlayerName;
     private GameLogicScript _gameLogic;
     public CharacterSelector characterSelector;
+    public PlayerSide playerSide;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        characterSelector.Select("dean");
+        setCharDataFromMainScreen();
         _character = characterSelector.GetActiveCharacter();
         _gameLogic = GetComponentInParent<GameLogicScript>();
         playerState.currentChoose = GameChoice.None;
         playerState.name = PlayerName;
+    }
+
+    public void setCharDataFromMainScreen(){
+        SelectedPlayerInfo info = new SelectedPlayerInfo();
+
+        if(playerSide == PlayerSide.Left){
+            info = SelectScreen.LeftPlayerInfo;
+        }
+        if(playerSide == PlayerSide.Right){
+            info = SelectScreen.RightPlayerInfo;
+        }
+
+        characterSelector.Select(info.SelectedCharSkin);
     }
 
     public void SetChoice(GameChoice choice)
