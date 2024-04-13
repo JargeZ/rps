@@ -87,6 +87,7 @@ public class PlayerSideController : MonoBehaviour
 
         yield return new WaitForSeconds(remainingTime - 0.69f);
 
+        Debug.Log("Set " + playerSide + " hand: " + hand);
         _character.SetHand(hand);
     }
 
@@ -99,7 +100,7 @@ public class PlayerSideController : MonoBehaviour
             {GameChoice.Scissors, CharHands.Scissors}
         };
         
-        string hand = hands.GetValueOrDefault(playerState.currentChoose, CharHands.Pew);
+        string hand = hands.GetValueOrDefault(playerState.currentChoose, CharHands.Idle);
 
         StartCoroutine(SetHandAfterAnimation(hand));
     }

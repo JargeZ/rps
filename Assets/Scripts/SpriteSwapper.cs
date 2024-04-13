@@ -12,10 +12,10 @@ public class SpriteSwapper : MonoBehaviour
 
     public void SetHand(string hand)
     {
-        spriteResolver.SetCategoryAndLabel("Pavel_Hands", hand);
+        spriteResolver.SetCategoryAndLabel("hands", hand);
     }
     public void SetFace(string body)
     {
-        spriteResolver.SetCategoryAndLabel("Pavel_Face", body);
+        spriteResolver.SetCategoryAndLabel("hands", body);
     }
 }
