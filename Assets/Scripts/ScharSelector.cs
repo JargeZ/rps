@@ -42,6 +42,7 @@ public class ScharSelector : MonoBehaviour
             selectedSkin = 0;
         }
         SpriteRenderer.sprite = skins[selectedSkin];
+        SetChar();
     }
 
     public void BackOption()
@@ -52,9 +53,10 @@ public class ScharSelector : MonoBehaviour
             selectedSkin = skins.Count -1 ;
         }
         SpriteRenderer.sprite = skins[selectedSkin];
+        SetChar();
     }
 
-    public void PlayGame()
+    public void SetChar()
     {
         Dictionary<int, string> indexToCharNameMapping = new Dictionary<int, string>
         {
@@ -79,9 +81,6 @@ public class ScharSelector : MonoBehaviour
             SelectScreen.RightPlayerInfo.SelectedCharSkin = currentCharSkinName;
             SelectScreen.RightPlayerInfo.SelectedPlayerName = currentPlayerName;
         }
-
-
-        SceneManager.LoadScene("SampleScene");
     }
 
 }

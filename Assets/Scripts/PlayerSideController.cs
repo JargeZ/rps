@@ -46,7 +46,6 @@ public class PlayerSideController : MonoBehaviour
         _character = characterSelector.GetActiveCharacter();
         _gameLogic = GetComponentInParent<GameLogicScript>();
         playerState.currentChoose = GameChoice.None;
-        playerState.name = PlayerName;
     }
 
     public void setCharDataFromMainScreen(){
@@ -58,6 +57,7 @@ public class PlayerSideController : MonoBehaviour
         if(playerSide == PlayerSide.Right){
             info = SelectScreen.RightPlayerInfo;
         }
+        playerState.name = info.SelectedPlayerName;
 
         characterSelector.Select(info.SelectedCharSkin);
     }
