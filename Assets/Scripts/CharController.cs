@@ -4,10 +4,10 @@ using UnityEngine;
 
 public static class CharHands
 {
-    public static string Rock = "Hand_Rock";
-    public static string Paper = "Hand_Paper";
-    public static string Scissors = "Hand_Scissors";
-    public static string Pew = "Hand_Pew";
+    public static string Rock = "rock";
+    public static string Paper = "paper";
+    public static string Scissors = "scissors";
+    public static string Idle = "idle";
 }
 
 public class CharController : MonoBehaviour
