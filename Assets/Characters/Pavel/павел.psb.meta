@@ -96,8 +96,8 @@ ScriptedImporter:
   rigSpriteImportData:
   - name: "\u0421\u043B\u043E\u043989"
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.097741224, y: 0.17437609}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -443,13 +443,13 @@ ScriptedImporter:
     spritePosition: {x: 1206, y: 1048}
   - name: "\u0421\u043B\u043E\u043988"
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.15828046, y: 0.20810606}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 1085
-      y: 2572
+      y: 2576
       width: 221
       height: 251
     spriteID: 216bb302c7237463f990cf569e7698c9
@@ -779,12 +779,12 @@ ScriptedImporter:
     spritePosition: {x: 1210, y: 1028}
   - name: "\u043D\u043E\u0436\u043D\u0438\u0446\u044B"
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.07159457, y: 0.19536151}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 278
+      x: 282
       y: 1909
       width: 271
       height: 259
@@ -1159,8 +1159,8 @@ ScriptedImporter:
     spritePosition: {x: 1214, y: 1037}
   - name: "\u043F\u0430\u0443"
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.10396989, y: 0.23589551}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
