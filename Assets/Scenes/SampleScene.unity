@@ -427,9 +427,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1241523304}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.364258, y: -428}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -8.364258, y: 163}
   m_SizeDelta: {x: 3999.9998, y: 773.43744}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &124291513
@@ -4484,7 +4484,7 @@ GameObject:
   - component: {fileID: 1125749707}
   - component: {fileID: 1125749706}
   m_Layer: 5
-  m_Name: Volume (1)
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4505,9 +4505,9 @@ RectTransform:
   - {fileID: 1008190814}
   m_Father: {fileID: 1241523304}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13, y: 446}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 13, y: -135}
   m_SizeDelta: {x: 767, y: 446}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1125749706
