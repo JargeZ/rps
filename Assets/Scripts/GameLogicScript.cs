@@ -17,6 +17,9 @@ public class GameLogicScript : MonoBehaviour
     private TMP_Text _result;
     public PlayerSideController _leftPlayer;
     public PlayerSideController _rightPlayer;
+    private int playerLeftScore = 0;
+    private int playerRightScore = 0;
+    public TMP_Text playerScoreText;
 
     private void ResetGame()
     {
@@ -60,6 +63,8 @@ public class GameLogicScript : MonoBehaviour
 
     private void setResultAnimation(GameResult result)
     {
+        UpdateScore(result);
+
         switch (result)
         {
             case GameResult.Draw:
@@ -75,8 +80,9 @@ public class GameLogicScript : MonoBehaviour
                 break;
             default:
                 throw new System.Exception("Unknown game result");
+
         }
-    }
+    }   
 
     // Этот метод вызывается, например, при нажатии кнопки сравнения
 
@@ -110,9 +116,36 @@ public class GameLogicScript : MonoBehaviour
 
     }
 
+    private void UpdateScore(GameResult result)
+    {
+        switch (result)
+        {
+            case GameResult.PlayerLeftWins:
+                playerLeftScore++;
+                break;
+            case GameResult.PlayerRightWins:
+                playerRightScore++;
+                break;
+            case GameResult.Draw:
+                // No score change for a draw
+                break;
+            default:
+                throw new System.Exception("Unknown game result");
+                
+        }
+        playerScoreText.text = playerLeftScore + " : " + playerRightScore;
+        if (playerLeftScore >= 3 || playerRightScore >= 3)
+        {
+            // Load the scene for game over or victory
+            SceneManager.LoadScene("GameOver");
+        }
+    }
+
     void Start()
     {
         ResetGame();
+        playerLeftScore = 0;
+        playerRightScore = 0;
     }
     
     public GameResult DetermineWinner(GameChoice leftValue, GameChoice rightValue)
