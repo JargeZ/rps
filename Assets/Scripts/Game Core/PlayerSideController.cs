@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -26,6 +27,7 @@ public struct PlayerState
 {
     public string name;
     public GameChoice currentChoose;
+    public int score;
 }
 
 
@@ -33,29 +35,34 @@ public class PlayerSideController : MonoBehaviour
 {
     public PlayerState playerState;
     private CharController _character;
-    public string PlayerName;
+    // public string PlayerName;
     private GameLogicScript _gameLogic;
     public CharacterSelector characterSelector;
     public PlayerSide playerSide;
+    private TMP_Text _playerNameText;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        _playerNameText = transform.Find("PlayerName")?.GetComponent<TMP_Text>();
+
         setCharDataFromMainScreen();
         _character = characterSelector.GetActiveCharacter();
         _gameLogic = GetComponentInParent<GameLogicScript>();
         playerState.currentChoose = GameChoice.None;
+
+        _playerNameText.text = playerState.name;
     }
 
     public void setCharDataFromMainScreen(){
         SelectedPlayerInfo info = new SelectedPlayerInfo();
 
         if(playerSide == PlayerSide.Left){
-            info = SelectScreen.LeftPlayerInfo;
+            info = GlobalState.LeftPlayerInfo;
         }
         if(playerSide == PlayerSide.Right){
-            info = SelectScreen.RightPlayerInfo;
+            info = GlobalState.RightPlayerInfo;
         }
         playerState.name = info.SelectedPlayerName;
 

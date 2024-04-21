@@ -17,9 +17,11 @@ public class GameLogicScript : MonoBehaviour
     private TMP_Text _result;
     public PlayerSideController _leftPlayer;
     public PlayerSideController _rightPlayer;
-    private int playerLeftScore = 0;
-    private int playerRightScore = 0;
+    // private int playerLeftScore = 0;
+    // private int playerRightScore = 0;
     public TMP_Text playerScoreText;
+
+    private static readonly SaveSystem _saveSystem = new SaveSystem();
 
     private void ResetGame()
     {
@@ -29,20 +31,26 @@ public class GameLogicScript : MonoBehaviour
             button.GetComponent<Button>().interactable = true;
         }
         _result.text = "Make your choice!";
+
         _leftPlayer.AnimateIdle();
-        _rightPlayer.AnimateIdle();
         _leftPlayer.playerState.currentChoose = GameChoice.None;
-        _rightPlayer.playerState.currentChoose = GameChoice.None;
-        _rightPlayer.UpdateHand();
+        // _leftPlayer.playerState.score = 0;
         _leftPlayer.UpdateHand();
+
+        _rightPlayer.AnimateIdle();
+        _rightPlayer.playerState.currentChoose = GameChoice.None;
+        // _rightPlayer.playerState.score = 0;
+        _rightPlayer.UpdateHand();
     }
 
-    private IEnumerator PerformDelayedReset()
+    private IEnumerator PerformDelayedAfterActions(GameResult result)
     {
-        // Ждем 5 секунд
+        // wait
         yield return new WaitForSeconds(3);
 
-        // Выполняем действие
+        // necessary actions
+        UpdateScore(result);
+        updateScoreText();
         ResetGame();
     }
 
@@ -63,8 +71,6 @@ public class GameLogicScript : MonoBehaviour
 
     private void setResultAnimation(GameResult result)
     {
-        UpdateScore(result);
-
         switch (result)
         {
             case GameResult.Draw:
@@ -84,14 +90,14 @@ public class GameLogicScript : MonoBehaviour
         }
     }   
 
-    // Этот метод вызывается, например, при нажатии кнопки сравнения
+    // // Этот метод вызывается, например, при нажатии кнопки сравнения
 
-    public void TryAgain()
-    {
-        // Reload the current scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    // public void TryAgain()
+    // {
+    //     // Reload the current scene
+    //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
-    }
+    // }
 
 
     public void CheckForGameResults()
@@ -109,7 +115,7 @@ public class GameLogicScript : MonoBehaviour
             GameResult result = DetermineWinner(ChooseLeft, ChooseRight);
             _result.text = getScreenText(result);
             setResultAnimation(result);
-            StartCoroutine(PerformDelayedReset());
+            StartCoroutine(PerformDelayedAfterActions(result));
             _leftPlayer.UpdateHand();
             _rightPlayer.UpdateHand();
         }
@@ -121,31 +127,53 @@ public class GameLogicScript : MonoBehaviour
         switch (result)
         {
             case GameResult.PlayerLeftWins:
-                playerLeftScore++;
+                _leftPlayer.playerState.score++;
                 break;
             case GameResult.PlayerRightWins:
-                playerRightScore++;
+                _rightPlayer.playerState.score++;
                 break;
             case GameResult.Draw:
                 // No score change for a draw
                 break;
             default:
                 throw new System.Exception("Unknown game result");
-                
         }
-        playerScoreText.text = playerLeftScore + " : " + playerRightScore;
-        if (playerLeftScore >= 3 || playerRightScore >= 3)
+
+        PlayerState? winner = getRoundWinner();
+        if (winner != null)
         {
             // Load the scene for game over or victory
+            _saveSystem.saveRoundResult(winner.Value);
             SceneManager.LoadScene("GameOver");
         }
     }
 
+    private PlayerState? getRoundWinner()
+    {
+        if (_leftPlayer.playerState.score >= 3)
+        {
+            return _leftPlayer.playerState;
+        }
+        else if (_rightPlayer.playerState.score >= 3)
+        {
+            return _rightPlayer.playerState;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    private void updateScoreText()
+    {
+        playerScoreText.text = _leftPlayer.playerState.score + " : " + _rightPlayer.playerState.score;
+    }
+
     void Start()
     {
+        _leftPlayer.playerState.score = 0;
+        _rightPlayer.playerState.score = 0;
         ResetGame();
-        playerLeftScore = 0;
-        playerRightScore = 0;
     }
     
     public GameResult DetermineWinner(GameChoice leftValue, GameChoice rightValue)

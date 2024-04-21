@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1799,6 +1799,7 @@ RectTransform:
   m_Children:
   - {fileID: 1685480151}
   - {fileID: 2136799917}
+  - {fileID: 1705000893}
   m_Father: {fileID: 1241523304}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1821,7 +1822,7 @@ MonoBehaviour:
   playerState:
     name: Nokia
     currentChoose: 0
-  PlayerName: "\u041F\u0430\u0432\u0435\u043B"
+    score: 0
   characterSelector: {fileID: 2136799916}
   playerSide: 0
 --- !u!1001 &513389387
@@ -3226,7 +3227,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 23.5
+  orthographic size: 11.75
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3251,7 +3252,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10.6, z: -10}
+  m_LocalPosition: {x: 0, y: 5.3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3861,7 +3862,7 @@ GameObject:
   - component: {fileID: 1047558966}
   - component: {fileID: 1047558965}
   m_Layer: 6
-  m_Name: PlayerName2
+  m_Name: PlayerName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3879,11 +3880,11 @@ RectTransform:
   m_LocalScale: {x: 2.13971, y: 2.13971, z: 2.13971}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1241523304}
+  m_Father: {fileID: 2028816879}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 1470, y: 427.99634}
+  m_AnchoredPosition: {x: -988.2554, y: 946.1653}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1047558965
@@ -5267,6 +5268,7 @@ GameObject:
   - component: {fileID: 1241523301}
   - component: {fileID: 1241523305}
   - component: {fileID: 1241523306}
+  - component: {fileID: 1241523307}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5349,8 +5351,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1705000893}
-  - {fileID: 1047558964}
   - {fileID: 124291512}
   - {fileID: 386549649}
   - {fileID: 2028816879}
@@ -5401,6 +5401,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1241523307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241523300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa3565a4fbc61e9498d15cbbbbeddff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1265154268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6466,7 +6478,7 @@ GameObject:
   - component: {fileID: 1705000895}
   - component: {fileID: 1705000894}
   m_Layer: 6
-  m_Name: PlayerName1
+  m_Name: PlayerName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6484,11 +6496,11 @@ RectTransform:
   m_LocalScale: {x: 2.13971, y: 2.13971, z: 2.13971}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1241523304}
+  m_Father: {fileID: 386549649}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 439.00623, y: 427.99634}
+  m_AnchoredPosition: {x: 439.00623, y: 946.1653}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1705000894
@@ -6600,7 +6612,6 @@ GameObject:
   - component: {fileID: 1776043792}
   - component: {fileID: 1776043791}
   - component: {fileID: 1776043794}
-  - component: {fileID: 1776043795}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -6670,20 +6681,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e4029da47924037ab2f258df4ec3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1776043795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1776043790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa3565a4fbc61e9498d15cbbbbeddff8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player1NameText: {fileID: 1705000894}
-  player2NameText: {fileID: 1047558965}
 --- !u!1 &1836264365
 GameObject:
   m_ObjectHideFlags: 0
@@ -7578,6 +7575,7 @@ RectTransform:
   m_Children:
   - {fileID: 383143288}
   - {fileID: 1836264366}
+  - {fileID: 1047558964}
   m_Father: {fileID: 1241523304}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
@@ -7600,7 +7598,7 @@ MonoBehaviour:
   playerState:
     name: Nokia
     currentChoose: 0
-  PlayerName: SpineCat
+    score: 0
   characterSelector: {fileID: 1836264367}
   playerSide: 1
 --- !u!1 &2136799915
