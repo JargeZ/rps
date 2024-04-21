@@ -7,25 +7,6 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public class SelectedPlayerInfo
-{
-    public string SelectedPlayerName;
-    public string SelectedCharSkin;
-}
-
-public static class SelectScreen
-{
-    public static SelectedPlayerInfo LeftPlayerInfo = new SelectedPlayerInfo();
-    public static SelectedPlayerInfo RightPlayerInfo = new SelectedPlayerInfo();
-}
-
-
-public enum PlayerSide
-{
-    Left,
-    Right
-}
-
 public class ScharSelector : MonoBehaviour
 {
 
@@ -34,7 +15,12 @@ public class ScharSelector : MonoBehaviour
     private int selectedSkin = 0;
     public PlayerSide playerSide;
 
-   public void NextOption()
+    public void Start()
+    {
+        SetChar();
+    }
+
+    public void NextOption()
     {
         selectedSkin = selectedSkin + 1;
         if (selectedSkin == skins.Count)
@@ -67,19 +53,15 @@ public class ScharSelector : MonoBehaviour
         };
 
         string currentCharSkinName = indexToCharNameMapping[selectedSkin];
-        string currentPlayerName = transform.parent.GetComponentsInChildren<TMP_Text>()[0].text;
         Debug.Log("Selected character: " + currentCharSkinName);
-        Debug.Log("Selected player name: " + currentPlayerName);
         
         if (playerSide == PlayerSide.Left)
         {
-            SelectScreen.LeftPlayerInfo.SelectedCharSkin = currentCharSkinName;
-            SelectScreen.LeftPlayerInfo.SelectedPlayerName = currentPlayerName;
+            GlobalState.LeftPlayerInfo.SelectedCharSkin = currentCharSkinName;
         }
         if (playerSide == PlayerSide.Right)
         {
-            SelectScreen.RightPlayerInfo.SelectedCharSkin = currentCharSkinName;
-            SelectScreen.RightPlayerInfo.SelectedPlayerName = currentPlayerName;
+            GlobalState.RightPlayerInfo.SelectedCharSkin = currentCharSkinName;
         }
     }
 

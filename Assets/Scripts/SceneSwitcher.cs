@@ -9,11 +9,16 @@ public class SceneSwitcher : MonoBehaviour
     // Function to switch to the specified scene
     public void SwitchScene()
     {
+        setScene(sceneName);
+    }
+
+    public static void setScene(string name)
+    {
         // Check if the scene name is not empty
-        if (!string.IsNullOrEmpty(sceneName))
+        if (!string.IsNullOrEmpty(name))
         {
             // Load the specified scene
-            SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene(name);
         }
         else
         {
