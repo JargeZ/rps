@@ -1300,9 +1300,9 @@ Transform:
   m_GameObject: {fileID: 294397413}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 10.1, z: 0}
-  m_LocalScale: {x: 1.8434197, y: 1.8434197, z: 1.8434197}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0.2, y: 3.8, z: 0}
+  m_LocalScale: {x: 0.85, y: 0.85, z: 0.85}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2549,7 +2549,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 11.75
+  orthographic size: 9.12
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2574,7 +2574,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.3, z: -10}
+  m_LocalPosition: {x: 0, y: 3.8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2592,9 +2592,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9f22432a98be41c38e24e6e0812924e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DesignOrthographicSize: 11.75
-  DesignWidth: 1920
-  DesignY: 5.3
+  DesignOrthographicSize: 9.12
+  DesignWidth: 1280
+  DesignY: 3.8
 --- !u!1 &985270759 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8905085865677926904, guid: c225b53ebd81442c58617c649508f721, type: 3}
@@ -5989,7 +5989,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1604441890}
   - {fileID: 513389388}
@@ -6716,7 +6716,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 383143288}
   - {fileID: 1836264366}
