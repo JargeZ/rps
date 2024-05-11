@@ -33,7 +33,7 @@ public class ChoiceButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(activationKey))
+        if (Input.GetKeyDown(activationKey) && _button.interactable)
         {
             _button.onClick.Invoke();
         }

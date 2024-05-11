@@ -29,11 +29,24 @@ public class CharController : MonoBehaviour
     public void SetAnimation(string animation)
     {
         Debug.Log("Set animation: " + animation);
+        if (_animator == null)
+        {
+            Debug.LogWarning(
+                "Animator is null, this is костыль to quick fix but it should not be called unless anumator is available"
+            );
+            return;
+        }
+
         _animator.SetTrigger(animation);
     }
 
     public void SetHand(string hand)
     {
+        if (_spriteSwapper == null)
+        {
+            Debug.LogWarning( "No sprite swapper found, ignoring hand change." );
+            return;
+        }
         _spriteSwapper.SetHand(hand);
     }
 

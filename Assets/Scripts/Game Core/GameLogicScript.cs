@@ -21,7 +21,7 @@ public class GameLogicScript : MonoBehaviour
     // private int playerRightScore = 0;
     public TMP_Text playerScoreText;
 
-    private static readonly SaveSystem _saveSystem = new SaveSystem();
+    public static readonly SaveSystem _saveSystem = new SaveSystem();
 
     private void ResetGame()
     {
@@ -79,10 +79,12 @@ public class GameLogicScript : MonoBehaviour
             case GameResult.PlayerLeftWins:
                 _leftPlayer.AnimateWin();
                 _rightPlayer.AnimateLose();
+                GlobalState.winner = _leftPlayer.playerState;
                 break;
             case GameResult.PlayerRightWins:
                 _rightPlayer.AnimateWin();
                 _leftPlayer.AnimateLose();
+                GlobalState.winner = _rightPlayer.playerState;
                 break;
             default:
                 throw new System.Exception("Unknown game result");
@@ -171,9 +173,6 @@ public class GameLogicScript : MonoBehaviour
 
     void Start()
     {
-        _leftPlayer.playerState.score = 0;
-        _rightPlayer.playerState.score = 0;
-        ResetGame();
     }
     
     public GameResult DetermineWinner(GameChoice leftValue, GameChoice rightValue)
