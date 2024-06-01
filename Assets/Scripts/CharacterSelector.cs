@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class CharacterSelector : MonoBehaviour
 {
+    public string selectedCharacter;
+
     public void Select(string characterName)
     {
         Debug.Log("Selected character: " + characterName);
+        selectedCharacter = characterName;
         
         foreach (Transform child in transform){
             if (child.gameObject.name == characterName)
